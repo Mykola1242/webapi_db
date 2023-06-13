@@ -7,13 +7,13 @@ namespace BLL
     {
         public MappingController()
         {
-            CreateMap<Billboard, DBBillboard>()
+            CreateMap<MZone, Zone>()
                 .ForMember(dest => dest.ID, opt => opt.Ignore());
 
-            CreateMap<Billboard, DBBillboard>()
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
-                .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags))
-                .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User))
+            CreateMap<MZone, Zone>()
+                .ForMember(dest => dest.Character, opt => opt.MapFrom(src => src.Character))
+                .ForMember(dest => dest.Attraction, opt => opt.MapFrom(src => src.Attraction))
+                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
                 .ForMember(dest => dest.IsActive, opt => opt.MapFrom(src => src.IsActive));
         }
     }

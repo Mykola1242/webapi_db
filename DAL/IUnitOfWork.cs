@@ -8,7 +8,7 @@ namespace DAL
 {
     public interface IUnitOfWork : IDisposable
     {
-        BillboardRepository<T> Billboards<T>(bool hasCustomRepository = false) where T : class;
+        ZoneRepository<T> Zones<T>(bool hasCustomRepository = false) where T : class;
         void Save();
     }
 }

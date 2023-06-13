@@ -9,34 +9,26 @@ namespace DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private BillboardContext db;
-        //private BillboardRepository<T> billboardRepository;
+        private DataContext db;
+        
         private bool _disposed = false;
 
-        public UnitOfWork(BillboardContext db)
+        public UnitOfWork(DataContext db)
         {
             this.db = db;
         }
 
 
-        //public BillboardRepository<DBBillboard> Billboards
-        //{
-        //    get
-        //    {
-        //        if (billboardRepository == null) billboardRepository = new BillboardRepository<DBBillboard>(db);
-        //        return billboardRepository;
-        //    }
-        //}
 
-        public BillboardRepository<T> Billboards<T>(bool hasCustomRepository = false) where T : class
+        public ZoneRepository<T> Zones<T>(bool hasCustomRepository = false) where T : class
         {
             if (!hasCustomRepository)
             {
-                BillboardRepository<T> billboardRepository = new BillboardRepository<T>(db);
-                return billboardRepository;
+                ZoneRepository<T> zoneRepository = new ZoneRepository<T>(db);
+                return zoneRepository;
             }
 
-            return db.GetService<BillboardRepository<T>>();
+            return db.GetService<ZoneRepository<T>>();
         }
 
         public void Save()

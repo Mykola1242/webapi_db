@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Billboard</title>
+    <title>Zone</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h2>Billboard</h2>
-    <form name="userForm">
+    <h2>Zone</h2>
+    <form name="Form">
         <input type="hidden" name="id" value="0" />
         <div class="form-group col-md-5">
-            <label for="name">Name:</label>
-            <input class="form-control" name="name" />
+            <label for="price">Price:</label>
+            <input class="form-control" name="price" />
         </div>
         <div class="form-group col-md-5">
-            <label for="category">Category:</label>
-            <input class="form-control" name="category" />
+            <label for="character">Character:</label>
+            <input class="form-control" name="character" />
         </div>
         <a href="htmlpage.html">htmlpage.html</a>
         <div class="form-group col-md-5">
-            <label for="tags">Tags:</label>
-            <input class="form-control" name="tags" />
+            <label for="attraction">Attraction:</label>
+            <input class="form-control" name="attraction" />
         </div>
         <div class="panel-body">
             <button type="submit" id="submit" class="btn btn-primary">Create an entry</button>
@@ -29,13 +29,13 @@
         </div>
     </form>
     <table class="table table-condensed table-striped  col-md-6">
-        <thead><tr><th>Name</th><th>Category</th><th>Tags</th></tr></thead>
+        <thead><tr><th>Price</th><th>Character</th><th>Attraction</th></tr></thead>
         <tbody>
         </tbody>
     </table>
 
     <form name="userForm2">
-    <input type="hidden" name="id" value="0" />
+        <input type="hidden" name="id" value="0" />
         <div class="form-group col-md-5">
             <label for="ids">ID:</label>
             <input class="form-control" name="ids" />
@@ -48,10 +48,10 @@
 
 
     <script>
-    // Получение всех пользователей
+        // Получение всех пользователей
         async function GetUsers() {
             // отправляет запрос и получаем ответ
-            const response = await fetch("/api/NewBillboard", {
+            const response = await fetch("/api/NewZone", {
                 method: "GET",
                 headers: { "Accept": "application/json" }
             });
@@ -69,9 +69,9 @@
             }
         }
 
-    // Получение одного пользователя
+        // Получение одного пользователя
         async function GetUser(id) {
-            const response = await fetch("/api/NewBillboard/" + id, {
+            const response = await fetch("/api/NewZone/" + id, {
                 method: "GET",
                 headers: { "Accept": "application/json" }
             });
@@ -84,7 +84,7 @@
         // Добавление пользователя
         async function CreateUser(userName, userCateg, userTags) {
 
-            const response = await fetch("api/NewBillboard", {
+            const response = await fetch("api/NewZone", {
                 method: "POST",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -104,7 +104,7 @@
 
         // Изменение пользователя
         async function EditUser(userName, userCateg, userTags) {
-            const response = await fetch("api/NewBillboard", {
+            const response = await fetch("api/NewZone", {
                 method: "PUT",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -123,7 +123,7 @@
 
         // Удаление пользователя
         async function DeleteUser(id) {
-            const response = await fetch("/api/NewBillboard/" + id, {
+            const response = await fetch("/api/NewZone/" + id, {
                 method: "DELETE",
                 headers: { "Accept": "application/json" }
             });
@@ -137,7 +137,7 @@
         // Деактивация пользователя
         async function Deactivate(id) {
             console.log(id);
-            const response = await fetch("/api/NewBillboard/Deactivate/" + id, {
+            const response = await fetch("/api/NewZone/Deactivate/" + id, {
                 method: "POST"
             });
             if (response.ok === true) {
@@ -163,8 +163,7 @@
         }
 
         // создание строки для таблицы
-        function row(user)
-        {
+        function row(user) {
             const tr = document.createElement("tr");
             tr.setAttribute("data-rowid", user.user);
 
@@ -226,7 +225,7 @@
 
             const form = document.forms["userForm2"];
             const id = form.elements["ids"].value;
-           
+
             Deactivate(id);
         });
 

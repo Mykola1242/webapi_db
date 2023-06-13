@@ -1,27 +1,27 @@
 {
   "Version": 1,
-  "Hash": "VjENpKAEn7jzYOGubYoIrkzFLIivazqQbZHeMC0GcO4=",
-  "Source": "Lab_4_newweb",
-  "BasePath": "_content/Lab_4_newweb",
+  "Hash": "KJ5yRrGp1/ErkP0nWL1zghB4I18xRULKkFKJEJtteqs=",
+  "Source": "UI",
+  "BasePath": "_content/UI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Lab_4_newweb\\wwwroot",
-      "Source": "Lab_4_newweb",
-      "ContentRoot": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
-      "BasePath": "_content/Lab_4_newweb",
+      "Name": "UI\\wwwroot",
+      "Source": "UI",
+      "ContentRoot": "D:\\Новая папка\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
+      "BasePath": "_content/UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\htmlpage.html",
-      "SourceId": "Lab_4_newweb",
+      "Identity": "D:\\Новая папка\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\htmlpage.html",
+      "SourceId": "UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
-      "BasePath": "_content/Lab_4_newweb",
+      "ContentRoot": "D:\\Новая папка\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
+      "BasePath": "_content/UI",
       "RelativePath": "htmlpage.html",
       "AssetKind": "All",
       "AssetMode": "All",

@@ -13,3 +13,18 @@ C:\Users\dubst\source\repos\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.dll
 C:\Users\dubst\source\repos\Lab_4_newweb\BLL\obj\Debug\net7.0\refint\BLL.dll
 C:\Users\dubst\source\repos\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.pdb
 C:\Users\dubst\source\repos\Lab_4_newweb\BLL\obj\Debug\net7.0\ref\BLL.dll
+D:\Новая папка\Lab_4_newweb\BLL\bin\Debug\net7.0\BLL.deps.json
+D:\Новая папка\Lab_4_newweb\BLL\bin\Debug\net7.0\BLL.dll
+D:\Новая папка\Lab_4_newweb\BLL\bin\Debug\net7.0\BLL.pdb
+D:\Новая папка\Lab_4_newweb\BLL\bin\Debug\net7.0\DAL.dll
+D:\Новая папка\Lab_4_newweb\BLL\bin\Debug\net7.0\DAL.pdb
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.dll
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\refint\BLL.dll
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\BLL.pdb
+D:\Новая папка\Lab_4_newweb\BLL\obj\Debug\net7.0\ref\BLL.dll
