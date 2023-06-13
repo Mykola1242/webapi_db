@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\htmlpage.html",
+      "PackagePath": "staticwebassets\\htmlpage.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Lab_4_newweb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Lab_4_newweb.props",
+      "PackagePath": "build\\Lab_4_newweb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Lab_4_newweb.props",
+      "PackagePath": "buildMultiTargeting\\Lab_4_newweb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Lab_4_newweb.props",
+      "PackagePath": "buildTransitive\\Lab_4_newweb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

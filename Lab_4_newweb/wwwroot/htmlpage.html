@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Billboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Billboard</h2>
+    <form name="userForm">
+        <input type="hidden" name="id" value="0" />
+        <div class="form-group col-md-5">
+            <label for="name">Name:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group col-md-5">
+            <label for="category">Category:</label>
+            <input class="form-control" name="category" />
+        </div>
+        <a href="htmlpage.html">htmlpage.html</a>
+        <div class="form-group col-md-5">
+            <label for="tags">Tags:</label>
+            <input class="form-control" name="tags" />
+        </div>
+        <div class="panel-body">
+            <button type="submit" id="submit" class="btn btn-primary">Create an entry</button>
+
+        </div>
+    </form>
+    <table class="table table-condensed table-striped  col-md-6">
+        <thead><tr><th>Name</th><th>Category</th><th>Tags</th></tr></thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <form name="userForm2">
+    <input type="hidden" name="id" value="0" />
+        <div class="form-group col-md-5">
+            <label for="ids">ID:</label>
+            <input class="form-control" name="ids" />
+        </div>
+        <div class="panel-body">
+            <button type="button" id="delete" class="btn btn-primary">Delete</button>
+            <button type="button" id="actDeact" class="btn btn-primary">Activate/Deactivate</button>
+        </div>
+    </form>
+
+
+    <script>
+    // Получение всех пользователей
+        async function GetUsers() {
+            // отправляет запрос и получаем ответ
+            const response = await fetch("/api/NewBillboard", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                // получаем данные
+                const users = await response.json();
+                let rows = document.querySelector("tbody");
+                users.forEach(user => {
+                    // добавляем полученные элементы в таблицу
+                    if (user.isActive) {
+                        rows.append(row(user));
+                    }
+                });
+            }
+        }
+
+    // Получение одного пользователя
+        async function GetUser(id) {
+            const response = await fetch("/api/NewBillboard/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                return user;
+            }
+        }
+
+        // Добавление пользователя
+        async function CreateUser(userName, userCateg, userTags) {
+
+            const response = await fetch("api/NewBillboard", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    category: userCateg,
+                    tags: userTags,
+                    user: userName,
+                    isActive: true
+                })
+            });
+
+            if (response.ok === true) {
+                const user = await response.json();
+                reset();
+                document.querySelector("tbody").append(row(user));
+            }
+        }
+
+        // Изменение пользователя
+        async function EditUser(userName, userCateg, userTags) {
+            const response = await fetch("api/NewBillboard", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    category: userCateg,
+                    tags: userTags,
+                    user: userName,
+                    isActive: true
+                })
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                reset();
+                document.querySelector("tr[data-rowid='" + user.id + "']").replaceWith(row(user));
+            }
+        }
+
+        // Удаление пользователя
+        async function DeleteUser(id) {
+            const response = await fetch("/api/NewBillboard/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                console.log(user.id);
+                document.querySelector("tr[data-rowid='" + id + "']").remove();
+            }
+        }
+
+        // Деактивация пользователя
+        async function Deactivate(id) {
+            console.log(id);
+            const response = await fetch("/api/NewBillboard/Deactivate/" + id, {
+                method: "POST"
+            });
+            if (response.ok === true) {
+                const res = await GetUser(id);
+
+                if (res.isActive) {
+                    console.log("activated");
+                    document.querySelector("tbody").append(row(res));
+                }
+                else {
+                    console.log("deactivated");
+                    document.querySelector("tr[data-rowid='" + res.user + "']").remove();
+                    console.log("removed");
+                }
+            }
+        }
+
+        // сброс формы
+        function reset() {
+            const form = document.forms["userForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+
+        // создание строки для таблицы
+        function row(user)
+        {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", user.user);
+
+            const idTd = document.createElement("td");
+            idTd.append(user.user);
+            tr.append(idTd);
+
+            const nameTd = document.createElement("td");
+            nameTd.append(user.category);
+            tr.append(nameTd);
+
+            const ageTd = document.createElement("td");
+            ageTd.append(user.tags);
+            tr.append(ageTd);
+
+            const linksTd = document.createElement("td");
+
+            const editLink = document.createElement("a");
+            editLink.setAttribute("data-id", user.id);
+            editLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            editLink.addEventListener("click", e => {
+
+                e.preventDefault();
+                GetUser(user.user);
+            });
+
+            linksTd.append(editLink);
+
+            const removeLink = document.createElement("a");
+            removeLink.setAttribute("data-id", user.id);
+            removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            removeLink.addEventListener("click", e => {
+
+                e.preventDefault();
+                console.log(user.user);
+                DeleteUser(user.user);
+            });
+
+            linksTd.append(removeLink);
+            tr.appendChild(linksTd);
+
+            return tr;
+        }
+
+        const delButton = document.getElementById("delete");
+        delButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const form = document.forms["userForm2"];
+            const id = form.elements["ids"].value;
+            console.log(id);
+            console.log("test");
+            DeleteUser(id);
+        });
+
+        const actDeact = document.getElementById("actDeact");
+        actDeact.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const form = document.forms["userForm2"];
+            const id = form.elements["ids"].value;
+           
+            Deactivate(id);
+        });
+
+        // отправка формы
+        document.forms["userForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["userForm"];
+            const name = form.elements["name"].value;
+            const category = form.elements["category"].value;
+            const tags = form.elements["tags"].value;
+            console.log(name);
+            console.log(category);
+            console.log(tags);
+            CreateUser(name, category, tags);
+        });
+
+        // загрузка пользователей
+        GetUsers();</script>
+</body>
+</html>

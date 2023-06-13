@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "VjENpKAEn7jzYOGubYoIrkzFLIivazqQbZHeMC0GcO4=",
+  "Source": "Lab_4_newweb",
+  "BasePath": "_content/Lab_4_newweb",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Lab_4_newweb\\wwwroot",
+      "Source": "Lab_4_newweb",
+      "ContentRoot": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
+      "BasePath": "_content/Lab_4_newweb",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\htmlpage.html",
+      "SourceId": "Lab_4_newweb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dubst\\source\\repos\\Lab_4_newweb\\Lab_4_newweb\\wwwroot\\",
+      "BasePath": "_content/Lab_4_newweb",
+      "RelativePath": "htmlpage.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\htmlpage.html"
+    }
+  ]
+}
